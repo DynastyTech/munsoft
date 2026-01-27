@@ -52,11 +52,33 @@ const AnimatedText = forwardRef<AnimatedTextHandle, AnimatedTextProps>(({
     
     containerRef.current.innerHTML = '';
     
-    text.split('').forEach((char) => {
-      const span = document.createElement('span');
-      span.className = styles.letter;
-      span.textContent = char === ' ' ? '\u00A0' : char;
-      containerRef.current?.appendChild(span);
+    // Split text into words to preserve word boundaries
+    const words = text.split(' ');
+    
+    words.forEach((word, wordIndex) => {
+      // Create a word wrapper to keep letters together (prevents word breaking)
+      const wordWrapper = document.createElement('span');
+      wordWrapper.className = styles.word;
+      wordWrapper.style.display = 'inline-block';
+      wordWrapper.style.whiteSpace = 'nowrap';
+      
+      // Add each letter of the word
+      word.split('').forEach((char) => {
+        const span = document.createElement('span');
+        span.className = styles.letter;
+        span.textContent = char;
+        wordWrapper.appendChild(span);
+      });
+      
+      containerRef.current?.appendChild(wordWrapper);
+      
+      // Add space between words (except after last word)
+      if (wordIndex < words.length - 1) {
+        const space = document.createElement('span');
+        space.className = styles.letter;
+        space.innerHTML = '&nbsp;';
+        containerRef.current?.appendChild(space);
+      }
     });
     
     isInitializedRef.current = true;

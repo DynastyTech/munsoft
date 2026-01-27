@@ -5,10 +5,29 @@
   contain: layout style;
 }
 
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .letter {
   display: inline-block;
   transform-style: preserve-3d;
   will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Mobile: allow text to wrap between words */
+@media (max-width: 480px) {
+  .animatedText {
+    overflow: visible;
+    display: inline;
+    white-space: normal;
+  }
+  
+  .word {
+    display: inline-block;
+    white-space: nowrap;
+  }
 }

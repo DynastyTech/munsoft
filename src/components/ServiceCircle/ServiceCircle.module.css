@@ -314,7 +314,7 @@
     line-height: 1.35;
   }
 
-  /* Push labels inward by ~30% */
+  /* ERP label */
   .erpLabel {
     top: 20%;
     left: 12%;
@@ -323,13 +323,14 @@
   /* ICT moved right by 10% */
   .ictLabel {
     top: 20%;
-    right: 2%;
+    right: -8%;
   }
 
-  /* Advisory moved up 15% and left 25%, centered with donut */
+  /* Advisory moved up 15% and centered with donut */
   .advisoryLabel {
-    bottom: 20%;
-    left: 25%;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -364,19 +365,22 @@
     line-height: 1.3;
   }
 
-  /* Push labels even more inward on very small screens */
+  /* ERP label */
   .erpLabel {
     top: 22%;
     left: 14%;
   }
 
+  /* ICT moved right */
   .ictLabel {
     top: 22%;
-    right: 0%;
+    right: -10%;
   }
 
+  /* Advisory centered with donut */
   .advisoryLabel {
-    bottom: 22%;
-    left: 25%;
+    bottom: 37%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
