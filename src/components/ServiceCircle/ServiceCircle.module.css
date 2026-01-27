@@ -320,16 +320,16 @@
     left: 12%;
   }
 
-  /* ICT moved right by 10% */
+  /* ICT moved 25% to the left */
   .ictLabel {
     top: 20%;
-    right: -8%;
+    right: 17%;
   }
 
-  /* Advisory moved up 15% and centered with donut */
+  /* Advisory moved 5% left and 30% down towards edge */
   .advisoryLabel {
-    bottom: 35%;
-    left: 50%;
+    bottom: 5%;
+    left: 45%;
     transform: translateX(-50%);
   }
 }
@@ -371,16 +371,16 @@
     left: 14%;
   }
 
-  /* ICT moved right */
+  /* ICT moved left */
   .ictLabel {
     top: 22%;
-    right: -10%;
+    right: 15%;
   }
 
-  /* Advisory centered with donut */
+  /* Advisory near edge of donut */
   .advisoryLabel {
-    bottom: 37%;
-    left: 50%;
+    bottom: 3%;
+    left: 45%;
     transform: translateX(-50%);
   }
 }
