@@ -968,12 +968,15 @@
     text-align: center;
     padding: 25px 20px;
     background: #f5f5f5;
-    min-height: 300px;
   }
 
   /* Fixed height container to prevent layout shift */
   .heroTitle {
-    min-height: 240px;
+    height: 260px;
+    min-height: 260px;
+    max-height: 260px;
+    overflow: hidden;
+    position: relative;
   }
 
   .heroLogo {
@@ -1072,8 +1075,11 @@
 
   /* Fixed height container to prevent layout shift during slide changes */
   .heroTitle {
-    min-height: 220px;
-    overflow: visible;
+    height: 240px;
+    min-height: 240px;
+    max-height: 240px;
+    overflow: hidden;
+    position: relative;
     display: flex;
     flex-direction: column;
   }
@@ -1105,8 +1111,7 @@
 
   .heroTextSection {
     padding: 20px 15px;
-    overflow: visible;
-    min-height: 280px;
+    overflow: hidden;
   }
 
   .personContainer {
