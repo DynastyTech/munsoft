@@ -1064,9 +1064,39 @@
     font-size: 1.4rem;
   }
 
+  .heroTitle {
+    min-height: auto;
+    overflow: visible;
+  }
+
   .heroTitle h2,
   .year {
     font-size: 1.4rem;
+  }
+
+  .slideTitle {
+    font-size: 1.3rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .slideSubtitle {
+    font-size: 1.1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .slideDescription {
+    font-size: 0.9rem;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .heroTextSection {
+    padding: 20px 15px;
+    overflow: visible;
   }
 
   .personContainer {
