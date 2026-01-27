@@ -320,10 +320,10 @@
     left: 12%;
   }
 
-  /* ICT moved 5% to the right */
+  /* ICT */
   .ictLabel {
     top: 20%;
-    right: 12%;
+    right: 10%;
   }
 
   /* Advisory moved up 5% and left 5% */
@@ -374,7 +374,7 @@
   /* ICT */
   .ictLabel {
     top: 22%;
-    right: 10%;
+    right: 8%;
   }
 
   /* Advisory */
