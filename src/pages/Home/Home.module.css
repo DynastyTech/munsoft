@@ -972,9 +972,9 @@
 
   /* Fixed height container to prevent layout shift */
   .heroTitle {
-    height: 260px;
-    min-height: 260px;
-    max-height: 260px;
+    height: 310px;
+    min-height: 310px;
+    max-height: 310px;
     overflow: hidden;
     position: relative;
   }
@@ -1075,9 +1075,9 @@
 
   /* Fixed height container to prevent layout shift during slide changes */
   .heroTitle {
-    height: 240px;
-    min-height: 240px;
-    max-height: 240px;
+    height: 290px;
+    min-height: 290px;
+    max-height: 290px;
     overflow: hidden;
     position: relative;
     display: flex;
