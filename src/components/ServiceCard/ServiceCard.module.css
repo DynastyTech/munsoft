@@ -1,0 +1,167 @@
+.cardWrapper {
+  perspective: 1000px;
+}
+
+.card {
+  background: var(--bg-primary);
+  border-radius: 16px;
+  padding: 36px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Colored accent line at top */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.card:hover::after {
+  transform: scaleX(1);
+}
+
+/* All accent lines use orange theme */
+.erp::after,
+.ict::after,
+.advisory::after {
+  background: linear-gradient(90deg, #E85A24, #F7931E);
+}
+
+.iconWrapper {
+  margin-bottom: 24px;
+}
+
+.iconCircle {
+  width: 85px;
+  height: 85px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-out, background 0.3s ease-out, box-shadow 0.3s ease-out;
+  position: relative;
+}
+
+/* All cards use the same orange/Munsoft theme color */
+.erp .iconCircle,
+.ict .iconCircle,
+.advisory .iconCircle {
+  background: rgba(232, 90, 36, 0.1);
+  color: #E85A24;
+}
+
+
+.card:hover .iconCircle {
+  transform: scale(1.1);
+}
+
+/* All cards use same hover effect */
+.erp:hover .iconCircle,
+.ict:hover .iconCircle,
+.advisory:hover .iconCircle {
+  background: rgba(232, 90, 36, 0.2);
+  box-shadow: 0 8px 25px rgba(232, 90, 36, 0.25);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .title {
+  transform: translateY(-2px);
+}
+
+/* All titles use orange theme color */
+.erp .title,
+.ict .title,
+.advisory .title {
+  color: #E85A24;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  min-height: 80px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: transparent;
+}
+
+/* All links use orange theme color */
+.erp .link,
+.ict .link,
+.advisory .link {
+  color: #E85A24;
+}
+
+.erp .link:hover,
+.ict .link:hover,
+.advisory .link:hover {
+  background: rgba(232, 90, 36, 0.1);
+}
+
+.link svg {
+  transition: transform 0.3s ease;
+}
+
+.link:hover svg {
+  transform: translateX(6px);
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 28px 22px;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+  }
+
+  .iconCircle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .description {
+    min-height: auto;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,14 @@
+.animatedText {
+  display: inline-block;
+  overflow: hidden;
+  perspective: 1000px;
+  contain: layout style;
+}
+
+.letter {
+  display: inline-block;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}

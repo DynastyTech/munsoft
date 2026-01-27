@@ -1,0 +1,138 @@
+.loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.loadingScreen.exiting {
+  opacity: 0;
+  transform: scale(1.02);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.logoContainer {
+  text-align: center;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.logo {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--color-primary, #E85A24);
+  letter-spacing: 2px;
+  margin: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.tagline {
+  display: block;
+  font-size: 0.9rem;
+  color: #6B7280;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 200px;
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+
+.loader {
+  width: 100%;
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loaderBar {
+  height: 100%;
+  background: linear-gradient(90deg, #E85A24, #F7931E);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+.dotsContainer {
+  display: flex;
+  gap: 8px;
+  animation: fadeInUp 0.8s ease 0.4s forwards;
+  opacity: 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary, #E85A24);
+  border-radius: 50%;
+  animation: bounce 1.4s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+  }
+
+  .loaderContainer {
+    width: 160px;
+  }
+}

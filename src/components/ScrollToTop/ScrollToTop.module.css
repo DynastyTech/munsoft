@@ -1,0 +1,53 @@
+.scrollButton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E85A24, #F7931E);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(232, 90, 36, 0.4);
+  z-index: 1000;
+}
+
+.scrollButton.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scrollButton:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 30px rgba(232, 90, 36, 0.5);
+}
+
+.scrollButton:active {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.scrollButton svg {
+  transition: transform 0.3s ease;
+}
+
+.scrollButton:hover svg {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .scrollButton {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+}
