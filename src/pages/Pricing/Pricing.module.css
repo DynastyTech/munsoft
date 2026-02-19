@@ -218,7 +218,7 @@
   min-width: 0;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 900px) {
   .catalogLayout {
     display: block;
     position: relative;
@@ -227,7 +227,7 @@
   .sidebar {
     position: fixed !important;
     top: 92px;
-    left: 0;
+    left: 16px;
     width: 220px;
     max-height: calc(100vh - 104px);
     overflow-y: auto;
@@ -242,8 +242,9 @@
   }
 
   .sectionWrap {
-    margin-left: 236px;
-    max-width: calc(1200px - 236px);
+    margin-left: 252px;
+    margin-right: 24px;
+    max-width: none;
   }
 
   .sectionBlock {
@@ -424,7 +425,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 899px) {
   .controls {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
