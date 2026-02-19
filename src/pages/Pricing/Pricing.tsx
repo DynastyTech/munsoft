@@ -241,6 +241,7 @@ const Pricing = () => {
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(new Set());
 
   const allItems = useMemo<CatalogItem[]>(() => {
     return pricingSections.flatMap((section) =>
@@ -321,6 +322,18 @@ const Pricing = () => {
     setSelectedChargeType('all');
     setSortField('name');
     setSortDirection('asc');
+  };
+
+  const toggleSection = (sectionId: string) => {
+    setCollapsedSections((prev) => {
+      const next = new Set(prev);
+      if (next.has(sectionId)) {
+        next.delete(sectionId);
+      } else {
+        next.add(sectionId);
+      }
+      return next;
+    });
   };
 
   return (
@@ -424,28 +437,42 @@ const Pricing = () => {
             <div className={styles.sectionsColumn}>
               {groupedSections.map((section) => (
                 <div id={`schedule-${section.id.replace('.', '-')}`} key={section.id} className={styles.sectionBlock}>
-                  <div className={`${styles.sectionHeader} ${styles[section.color]}`}>
-                    <h2>{section.title}</h2>
-                    <p>{section.subtitle}</p>
-                  </div>
+                  <button
+                    type="button"
+                    className={`${styles.sectionHeader} ${styles[section.color]} ${styles.sectionHeaderButton}`}
+                    onClick={() => toggleSection(section.id)}
+                    aria-expanded={!collapsedSections.has(section.id)}
+                  >
+                    <div>
+                      <h2>{section.title}</h2>
+                      <p>{section.subtitle}</p>
+                    </div>
+                    <span className={styles.sectionHeaderMeta}>
+                      {collapsedSections.has(section.id) ? 'Show' : 'Hide'} ({section.items.length})
+                    </span>
+                  </button>
 
-                  <div className={styles.cardGrid}>
-                    {section.items.map((item, index) => (
-                      <article key={`${section.id}-${index}-${item.name}`} className={styles.card}>
-                        <div className={styles.cardTop}>
-                          <div className={`${styles.cardIcon} ${styles[item.color]}`}>{getCardIcon(item.chargeType)}</div>
-                        </div>
-                        <div className={styles.cardBody}>
-                          <h3>{item.name}</h3>
-                          <p>{item.description}</p>
-                        </div>
-                        <div className={styles.cardMeta}>
-                          <span className={styles.chargeType}>{item.chargeType}</span>
-                          <span className={styles.price}>{item.price}</span>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
+                  {!collapsedSections.has(section.id) && (
+                    <div className={styles.cardsScroller}>
+                      <div className={styles.cardGrid}>
+                        {section.items.map((item, index) => (
+                          <article key={`${section.id}-${index}-${item.name}`} className={styles.card}>
+                            <div className={styles.cardTop}>
+                              <div className={`${styles.cardIcon} ${styles[item.color]}`}>{getCardIcon(item.chargeType)}</div>
+                            </div>
+                            <div className={styles.cardBody}>
+                              <h3>{item.name}</h3>
+                              <p>{item.description}</p>
+                            </div>
+                            <div className={styles.cardMeta}>
+                              <span className={styles.chargeType}>{item.chargeType}</span>
+                              <span className={styles.price}>{item.price}</span>
+                            </div>
+                          </article>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
