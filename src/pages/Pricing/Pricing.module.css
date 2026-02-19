@@ -511,3 +511,24 @@
   }
 }
 
+@media (min-width: 900px) {
+  .sidebar {
+    top: 96px;
+    max-height: calc(100vh - 120px);
+    overflow: hidden;
+  }
+
+  .sidebarNav {
+    /* Show roughly 4 schedule buttons, then scroll inside nav */
+    max-height: 330px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 4px;
+  }
+
+  .sidebarLink {
+    min-height: 78px;
+    align-items: center;
+  }
+}
+
