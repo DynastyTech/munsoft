@@ -227,17 +227,23 @@
   .sidebar {
     position: fixed !important;
     top: 92px;
-    left: max(24px, calc((100vw - 1200px) / 2));
-    width: 230px;
+    left: 0;
+    width: 220px;
     max-height: calc(100vh - 104px);
     overflow-y: auto;
     overscroll-behavior: contain;
     z-index: 20;
+    border-radius: 0;
   }
 
   .sectionsColumn {
-    margin-left: 270px;
+    margin-left: 0;
     min-width: 0;
+  }
+
+  .sectionWrap {
+    margin-left: 236px;
+    max-width: calc(1200px - 236px);
   }
 
   .sectionBlock {
