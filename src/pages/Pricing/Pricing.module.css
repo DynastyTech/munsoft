@@ -160,6 +160,8 @@
   border-radius: 0;
   padding: 14px;
   box-shadow: var(--shadow-sm);
+  align-self: start;
+  height: fit-content;
 }
 
 .sidebar h3 {
@@ -218,6 +220,16 @@
 
 .sectionsColumn {
   min-width: 0;
+}
+
+@media (min-width: 1025px) {
+  .sidebar {
+    position: sticky;
+    top: 92px;
+    max-height: calc(100vh - 104px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 }
 
 .sectionHeader {
