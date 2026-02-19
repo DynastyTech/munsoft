@@ -330,10 +330,9 @@ const Pricing = () => {
         <div className={`${styles.heroContent} ${styles.visible}`}>
           <h1>Pricing Catalog</h1>
           <p>
-            Product and service pricing from the 2026 variable and communication schedules (sections 1.1 to 1.6),
+            Product and service pricing from the 2026 variable and communication schedules,
             presented as a modern catalog for quick comparison.
           </p>
-          <span className={styles.note}>All prices are listed in South African Rand (ZAR).</span>
         </div>
       </section>
 
