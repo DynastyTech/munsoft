@@ -60,14 +60,18 @@
 .sectionWrap {
   max-width: 1200px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.sectionWrap.visible {
+  transform: none;
 }
 
 .sectionBlock {
@@ -220,12 +224,13 @@
 
 @media (min-width: 900px) {
   .catalog {
-    padding-left: 260px;
+    padding-left: 280px;
   }
 
   .sectionWrap {
     max-width: none;
     margin: 0;
+    width: 100%;
   }
 
   .catalogLayout {
