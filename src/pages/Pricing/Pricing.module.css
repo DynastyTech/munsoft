@@ -224,7 +224,7 @@
 
 @media (min-width: 1025px) {
   .catalogLayout {
-    grid-template-columns: 280px minmax(0, 1fr);
+    display: block;
   }
 
   .sidebar {
@@ -243,6 +243,8 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: calc(100% - 300px);
+    min-width: 0;
   }
 
   .sectionBlock {
