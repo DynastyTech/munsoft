@@ -14,6 +14,10 @@ type ChargeType =
   | 'Per License'
   | 'Per Device'
   | 'Per Month'
+  | 'Per Year'
+  | 'Per Bundle'
+  | 'Per Search'
+  | 'Per Course'
   | 'Rate'
   | 'Price on Request';
 
@@ -28,6 +32,7 @@ interface PricingSection {
   id: string;
   title: string;
   subtitle: string;
+  scheduleName: string;
   color: 'primary' | 'secondary' | 'tertiary';
   items: PricingItem[];
 }
@@ -35,8 +40,9 @@ interface PricingSection {
 const pricingSections: PricingSection[] = [
   {
     id: '1.1',
-    title: '1.1 Out of Scope (Ad Hoc Hourly Rates)',
+    title: 'Out of Scope (Ad Hoc Hourly Rates)',
     subtitle: 'Professional support resources charged per hour',
+    scheduleName: 'Out of Scope (Ad Hoc Hourly Rates)',
     color: 'primary',
     items: [
       { name: 'Project Manager', description: 'Provides project governance, planning, stakeholder coordination, and delivery oversight for municipal implementations.', price: 'R 1,200.00', chargeType: 'Hourly' },
@@ -63,8 +69,9 @@ const pricingSections: PricingSection[] = [
   },
   {
     id: '1.2',
-    title: '1.2 Travel, Accommodation and Subsistence',
+    title: 'Travel, Accommodation and Subsistence',
     subtitle: 'Operational logistics and travel-related costs',
+    scheduleName: 'Travel, Accommodation and Subsistence',
     color: 'secondary',
     items: [
       { name: 'Per Kilometre Rate for Travel', description: 'Distance-based billing for approved project travel in support of municipal delivery.', price: 'R 5.00', chargeType: 'Per Km' },
@@ -79,8 +86,9 @@ const pricingSections: PricingSection[] = [
   },
   {
     id: '1.3',
-    title: '1.3 Service Schedule E/G',
+    title: 'Service Schedule E/G - Disaster Recovery License and Storage Charges',
     subtitle: 'Disaster recovery license and storage charges',
+    scheduleName: 'Service Schedule E/G',
     color: 'tertiary',
     items: [
       { name: 'Additional Data Storage (per GB)', description: 'Supplementary storage capacity for backup retention and disaster recovery continuity.', price: 'Price on request', chargeType: 'Per Unit' },
@@ -89,8 +97,9 @@ const pricingSections: PricingSection[] = [
   },
   {
     id: '1.4',
-    title: '1.4 Service Schedule F/T',
+    title: 'Service Schedule F/T - Electronic/Asset Meter Reading Device Charges',
     subtitle: 'Electronic and asset meter reading device charges',
+    scheduleName: 'Service Schedule F/T',
     color: 'primary',
     items: [
       { name: 'Additional Device (per device)', description: 'Additional field device charge for meter reading and asset data collection operations.', price: 'Price on request', chargeType: 'Per Device' },
@@ -99,8 +108,9 @@ const pricingSections: PricingSection[] = [
   },
   {
     id: '1.5',
-    title: '1.5 Service Schedule H',
+    title: 'Service Schedule H - Munsoft Statement Printing Solution Printing Charges',
     subtitle: 'Statement printing and distribution related variable charges',
+    scheduleName: 'Service Schedule H',
     color: 'secondary',
     items: [
       { name: 'Statements Printed & Mail Processed (mailers)', description: 'End-to-end print, insert, and mail handling service for municipal statement distribution.', price: 'R 1.91', chargeType: 'Per Item' },
@@ -119,8 +129,9 @@ const pricingSections: PricingSection[] = [
   },
   {
     id: '1.6',
-    title: '1.6 Service Schedule J',
+    title: 'Service Schedule J - Munsoft e-Services Solution Communication Charges',
     subtitle: 'e-Services communication, payment facilitation, and support charges',
+    scheduleName: 'Service Schedule J',
     color: 'tertiary',
     items: [
       { name: 'SMS Charge per Unit (Short Message Service, 160 Characters)', description: 'Per-message charge for transactional and customer communication through SMS.', price: 'R 0.30', chargeType: 'Per Message' },
@@ -134,6 +145,46 @@ const pricingSections: PricingSection[] = [
       { name: 'Chargeback Fee (per fraudulent transaction)', description: 'Investigation and reversal handling fee for fraudulent or disputed transactions.', price: 'R 150.00', chargeType: 'Per Transaction' },
       { name: 'Refund Fee (per refund)', description: 'Administrative and processing fee for managed customer refund transactions.', price: 'R 2.50', chargeType: 'Per Transaction' },
       { name: 'Support Rate (per hour, marketing specialist) out of scope', description: 'Hourly out-of-scope specialist support for campaign, outreach, and communication assistance.', price: 'R 950.00', chargeType: 'Hourly' },
+    ],
+  },
+  {
+    id: '1.7',
+    title: 'Service Schedule K - Performance Management Storage Charges',
+    subtitle: 'Additional storage and license bundle options for performance management',
+    scheduleName: 'Service Schedule K',
+    color: 'primary',
+    items: [
+      { name: 'Additional Data Storage', description: 'Adds extra storage capacity for performance evidence, records, and reporting datasets.', price: 'Price on request', chargeType: 'Per Unit' },
+      { name: 'Additional License Bundle (per bundle of 50 users)', description: 'Expands system access through bundled user licensing for larger teams.', price: 'Price on request', chargeType: 'Per Bundle' },
+    ],
+  },
+  {
+    id: '1.8',
+    title: 'Service Schedule M - Revenue Management Variable Charges',
+    subtitle: 'Indigent and bidder-vetting related variable services',
+    scheduleName: 'Service Schedule M',
+    color: 'secondary',
+    items: [
+      { name: 'Specialized Indigent Module - SMS Communicator', description: 'Automates communication with indigent households for notices, updates, and reminders.', price: 'Price on request', chargeType: 'Per Message' },
+      { name: 'Specialized Indigent Module - External Verification (CAAT)', description: 'Supports external data validation and compliance checks for indigent qualification.', price: 'Price on request', chargeType: 'Per Unit' },
+      { name: 'Specialized Indigent Module - Mobile Handheld Transaction', description: 'Captures field transactions on handheld devices for indigent service workflows.', price: 'Price on request', chargeType: 'Per Transaction' },
+      { name: 'Specialized Indigent Module - Mobile Device (per device)', description: 'Device provisioning and usage for mobile indigent management operations.', price: 'Price on request', chargeType: 'Per Device' },
+      { name: 'Specialized Indigent Module - SIM/Data (per device/per year)', description: 'Annual connectivity package for devices used in indigent program operations.', price: 'Price on request', chargeType: 'Per Year' },
+      { name: 'SCM Online Bidder Vetting Module - Supplier/Bidder Vetting (per search) transactional', description: 'Transactional screening service for supplier and bidder due diligence searches.', price: 'Price on request', chargeType: 'Per Search' },
+      { name: 'SCM Online Bidder Vetting Module - Collectionwise', description: 'Debt and collection risk insight support for procurement and bidder evaluation.', price: 'Price on request', chargeType: 'Per Unit' },
+    ],
+  },
+  {
+    id: '1.9',
+    title: 'Service Schedule O - Munsoft Training Charges',
+    subtitle: 'Offsite and onsite training courses for municipal teams',
+    scheduleName: 'Service Schedule O',
+    color: 'tertiary',
+    items: [
+      { name: '1 Day Offsite Training Course', description: 'Intensive one-day skills training for users and administrators.', price: 'Price on request', chargeType: 'Per Course' },
+      { name: '2 Day Offsite Training Course', description: 'Two-day structured training program with deeper practical coverage.', price: 'Price on request', chargeType: 'Per Course' },
+      { name: '3 Day Offsite Training Course', description: 'Comprehensive offsite learning path for advanced adoption and capability building.', price: 'Price on request', chargeType: 'Per Course' },
+      { name: 'Onsite Training (per day)', description: 'On-location training delivery tailored to municipal teams and operational context.', price: 'Price on request', chargeType: 'Daily' },
     ],
   },
 ];
@@ -211,38 +262,64 @@ const Pricing = () => {
     return parseFloat(price.replace(/[^0-9.]/g, '')) || Number.POSITIVE_INFINITY;
   };
 
-  const filteredAndSortedItems = useMemo(() => {
-    const searchTerm = search.trim().toLowerCase();
-
-    const filtered = allItems.filter((item) => {
-      const matchesSearch =
-        searchTerm.length === 0 ||
-        item.name.toLowerCase().includes(searchTerm) ||
-        item.description.toLowerCase().includes(searchTerm) ||
-        item.sectionTitle.toLowerCase().includes(searchTerm);
-
-      const matchesSection = selectedSection === 'all' || item.sectionId === selectedSection;
-      const matchesChargeType = selectedChargeType === 'all' || item.chargeType === selectedChargeType;
-
-      return matchesSearch && matchesSection && matchesChargeType;
-    });
-
-    const sorted = [...filtered].sort((a, b) => {
+  const getSortedItems = (items: CatalogItem[]) => {
+    return [...items].sort((a, b) => {
       let compareResult = 0;
 
       if (sortField === 'name') {
         compareResult = a.name.localeCompare(b.name);
-      } else if (sortField === 'section') {
-        compareResult = a.sectionId.localeCompare(b.sectionId, undefined, { numeric: true });
       } else if (sortField === 'price') {
         compareResult = parsePriceForSort(a.price) - parsePriceForSort(b.price);
+      } else {
+        compareResult = a.name.localeCompare(b.name);
       }
 
       return sortDirection === 'asc' ? compareResult : -compareResult;
     });
+  };
 
-    return sorted;
+  const groupedSections = useMemo(() => {
+    const searchTerm = search.trim().toLowerCase();
+
+    const sectionOrder = [...pricingSections].sort((a, b) => {
+      if (sortField !== 'section') return 0;
+      const compareResult = a.id.localeCompare(b.id, undefined, { numeric: true });
+      return sortDirection === 'asc' ? compareResult : -compareResult;
+    });
+
+    return sectionOrder
+      .filter((section) => selectedSection === 'all' || section.id === selectedSection)
+      .map((section) => {
+        const sectionItems = allItems.filter((item) => {
+          if (item.sectionId !== section.id) return false;
+
+          const matchesSearch =
+            searchTerm.length === 0 ||
+            item.name.toLowerCase().includes(searchTerm) ||
+            item.description.toLowerCase().includes(searchTerm) ||
+            item.sectionTitle.toLowerCase().includes(searchTerm);
+
+          const matchesChargeType = selectedChargeType === 'all' || item.chargeType === selectedChargeType;
+          return matchesSearch && matchesChargeType;
+        });
+
+        return {
+          ...section,
+          items: sortField === 'section' ? sectionItems : getSortedItems(sectionItems),
+        };
+      })
+      .filter((section) => section.items.length > 0);
   }, [allItems, search, selectedSection, selectedChargeType, sortField, sortDirection]);
+
+  const resultCount = useMemo(() => groupedSections.reduce((total, section) => total + section.items.length, 0), [groupedSections]);
+
+  const clearControls = () => {
+    setSearch('');
+    setSelectedSection('all');
+    setSelectedChargeType('all');
+    setSortField('name');
+    setSortDirection('asc');
+  };
 
   return (
     <div className={styles.pricing}>
@@ -274,10 +351,10 @@ const Pricing = () => {
               onChange={(event) => setSelectedSection(event.target.value)}
               className={styles.select}
             >
-              <option value="all">All Sections</option>
+              <option value="all">All Service Schedules</option>
               {pricingSections.map((section) => (
                 <option key={section.id} value={section.id}>
-                  {section.id}
+                  {section.title}
                 </option>
               ))}
             </select>
@@ -301,7 +378,7 @@ const Pricing = () => {
               className={styles.select}
             >
               <option value="name">Sort by Name</option>
-              <option value="section">Sort by Section</option>
+              <option value="section">Sort by Service Schedule</option>
               <option value="price">Sort by Price</option>
             </select>
 
@@ -313,32 +390,71 @@ const Pricing = () => {
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
             </select>
+
+            <button type="button" onClick={clearControls} className={styles.clearButton}>
+              Clear
+            </button>
           </div>
 
-          <div className={styles.resultCount}>{filteredAndSortedItems.length} catalog items</div>
+          <div className={styles.resultCount}>{resultCount} catalog items</div>
 
-          <div className={styles.cardGrid}>
-            {filteredAndSortedItems.map((item, index) => (
-              <article key={`${item.sectionId}-${index}-${item.name}`} className={styles.card}>
-                <div className={styles.cardTop}>
-                  <div className={`${styles.cardIcon} ${styles[item.color]}`}>{getCardIcon(item.chargeType)}</div>
-                  <div className={styles.sectionTag}>{item.sectionId}</div>
+          <div className={styles.catalogLayout}>
+            <aside className={styles.sidebar}>
+              <h3>Service Schedules</h3>
+              <nav className={styles.sidebarNav}>
+                {groupedSections.map((section) => (
+                  <a key={section.id} href={`#schedule-${section.id.replace('.', '-')}`} className={styles.sidebarLink}>
+                    <span>{section.id}</span>
+                    <small>{section.scheduleName}</small>
+                  </a>
+                ))}
+              </nav>
+            </aside>
+
+            <div className={styles.sectionsColumn}>
+              {groupedSections.map((section) => (
+                <div id={`schedule-${section.id.replace('.', '-')}`} key={section.id} className={styles.sectionBlock}>
+                  <div className={`${styles.sectionHeader} ${styles[section.color]}`}>
+                    <h2>{section.title}</h2>
+                    <p>{section.subtitle}</p>
+                  </div>
+
+                  <div className={styles.cardGrid}>
+                    {section.items.map((item, index) => (
+                      <article key={`${section.id}-${index}-${item.name}`} className={styles.card}>
+                        <div className={styles.cardTop}>
+                          <div className={`${styles.cardIcon} ${styles[item.color]}`}>{getCardIcon(item.chargeType)}</div>
+                          <div className={styles.sectionTag}>{item.sectionId}</div>
+                        </div>
+                        <div className={styles.cardBody}>
+                          <h3>{item.name}</h3>
+                          <p>{item.description}</p>
+                        </div>
+                        <div className={styles.sectionContext}>
+                          <strong>{item.sectionTitle}</strong>
+                          <span>{item.sectionSubtitle}</span>
+                        </div>
+                        <div className={styles.cardMeta}>
+                          <span className={styles.chargeType}>{item.chargeType}</span>
+                          <span className={styles.price}>{item.price}</span>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
                 </div>
-                <div className={styles.cardBody}>
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
-                </div>
-                <div className={styles.sectionContext}>
-                  <strong>{item.sectionTitle}</strong>
-                  <span>{item.sectionSubtitle}</span>
-                </div>
-                <div className={styles.cardMeta}>
-                  <span className={styles.chargeType}>{item.chargeType}</span>
-                  <span className={styles.price}>{item.price}</span>
-                </div>
-              </article>
-            ))}
+              ))}
+            </div>
           </div>
+
+          {resultCount === 0 && (
+            <div className={styles.emptyState}>
+              <h3>No matching items found</h3>
+              <p>Try adjusting your search text or filters.</p>
+              <button type="button" onClick={clearControls} className={styles.clearButton}>
+                Clear Filters
+              </button>
+            </div>
+          )}
         </div>
       </section>
     </div>

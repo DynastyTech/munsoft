@@ -71,11 +71,12 @@
 
 .sectionBlock {
   margin-bottom: 42px;
+  scroll-margin-top: 110px;
 }
 
 .controls {
   display: grid;
-  grid-template-columns: minmax(250px, 1.5fr) repeat(4, minmax(140px, 1fr));
+  grid-template-columns: minmax(250px, 1.5fr) repeat(4, minmax(140px, 1fr)) minmax(90px, auto);
   gap: 10px;
   margin-bottom: 14px;
 }
@@ -98,10 +99,88 @@
   box-shadow: 0 0 0 3px rgba(232, 90, 36, 0.15);
 }
 
+.clearButton {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0 14px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.clearButton:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
 .resultCount {
   color: var(--text-secondary);
   font-size: 0.9rem;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.catalogLayout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 94px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar h3 {
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebarLink {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: 10px;
+  padding: 8px 10px;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.sidebarLink span {
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.sidebarLink small {
+  color: var(--text-tertiary);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.sidebarLink:hover {
+  border-color: var(--border-default);
+  background: var(--bg-secondary);
+}
+
+.sectionsColumn {
+  min-width: 0;
 }
 
 .sectionHeader {
@@ -219,6 +298,25 @@
   line-height: 1.35;
 }
 
+.emptyState {
+  margin-top: 20px;
+  text-align: center;
+  padding: 30px 16px;
+  border-radius: 14px;
+  border: 1px dashed var(--border-default);
+  background: var(--bg-primary);
+}
+
+.emptyState h3 {
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.emptyState p {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
 .cardMeta {
   margin-top: 10px;
   padding-top: 10px;
@@ -257,6 +355,19 @@
 
 @media (max-width: 1024px) {
   .controls {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalogLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .sidebarNav {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -279,6 +390,10 @@
   }
 
   .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarNav {
     grid-template-columns: 1fr;
   }
 
