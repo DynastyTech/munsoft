@@ -239,6 +239,8 @@ const Pricing = () => {
   const [selectedChargeType, setSelectedChargeType] = useState('all');
   const [sortField, setSortField] = useState<SortField>('name');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const allItems = useMemo<CatalogItem[]>(() => {
     return pricingSections.flatMap((section) =>
@@ -337,75 +339,84 @@ const Pricing = () => {
 
       <section className={styles.catalog}>
         <div className={`${styles.sectionWrap} ${styles.visible}`}>
-          <div className={styles.controls}>
-            <input
-              type="text"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search product, description, or section..."
-              className={styles.searchInput}
-            />
+          <button type="button" className={styles.mobileToggle} onClick={() => setIsFiltersOpen((prev) => !prev)}>
+            {isFiltersOpen ? 'Hide Filters' : 'Show Filters'}
+          </button>
 
-            <select
-              value={selectedSection}
-              onChange={(event) => setSelectedSection(event.target.value)}
-              className={styles.select}
-            >
-              <option value="all">All Service Schedules</option>
-              {pricingSections.map((section) => (
-                <option key={section.id} value={section.id}>
-                  {section.title}
-                </option>
-              ))}
-            </select>
+          <div className={`${styles.controlsWrap} ${isFiltersOpen ? styles.open : ''}`}>
+            <div className={styles.controls}>
+              <input
+                type="text"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Search product, description, or section..."
+                className={styles.searchInput}
+              />
 
-            <select
-              value={selectedChargeType}
-              onChange={(event) => setSelectedChargeType(event.target.value)}
-              className={styles.select}
-            >
-              <option value="all">All Charge Types</option>
-              {chargeTypeOptions.map((chargeType) => (
-                <option key={chargeType} value={chargeType}>
-                  {chargeType}
-                </option>
-              ))}
-            </select>
+              <select
+                value={selectedSection}
+                onChange={(event) => setSelectedSection(event.target.value)}
+                className={styles.select}
+              >
+                <option value="all">All Service Schedules</option>
+                {pricingSections.map((section) => (
+                  <option key={section.id} value={section.id}>
+                    {section.title}
+                  </option>
+                ))}
+              </select>
 
-            <select
-              value={sortField}
-              onChange={(event) => setSortField(event.target.value as SortField)}
-              className={styles.select}
-            >
-              <option value="name">Sort by Name</option>
-              <option value="section">Sort by Service Schedule</option>
-              <option value="price">Sort by Price</option>
-            </select>
+              <select
+                value={selectedChargeType}
+                onChange={(event) => setSelectedChargeType(event.target.value)}
+                className={styles.select}
+              >
+                <option value="all">All Charge Types</option>
+                {chargeTypeOptions.map((chargeType) => (
+                  <option key={chargeType} value={chargeType}>
+                    {chargeType}
+                  </option>
+                ))}
+              </select>
 
-            <select
-              value={sortDirection}
-              onChange={(event) => setSortDirection(event.target.value as SortDirection)}
-              className={styles.select}
-            >
-              <option value="asc">Ascending</option>
-              <option value="desc">Descending</option>
-            </select>
+              <select
+                value={sortField}
+                onChange={(event) => setSortField(event.target.value as SortField)}
+                className={styles.select}
+              >
+                <option value="name">Sort by Name</option>
+                <option value="section">Sort by Service Schedule</option>
+                <option value="price">Sort by Price</option>
+              </select>
 
-            <button type="button" onClick={clearControls} className={styles.clearButton}>
-              Clear
-            </button>
+              <select
+                value={sortDirection}
+                onChange={(event) => setSortDirection(event.target.value as SortDirection)}
+                className={styles.select}
+              >
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+
+              <button type="button" onClick={clearControls} className={styles.clearButton}>
+                Clear
+              </button>
+            </div>
           </div>
 
           <div className={styles.resultCount}>{resultCount} catalog items</div>
 
           <div className={styles.catalogLayout}>
-            <aside className={styles.sidebar}>
+            <button type="button" className={styles.mobileToggle} onClick={() => setIsSidebarOpen((prev) => !prev)}>
+              {isSidebarOpen ? 'Hide Service Schedules' : 'Show Service Schedules'}
+            </button>
+
+            <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ''}`}>
               <h3>Service Schedules</h3>
               <nav className={styles.sidebarNav}>
                 {groupedSections.map((section) => (
                   <a key={section.id} href={`#schedule-${section.id.replace('.', '-')}`} className={styles.sidebarLink}>
-                    <span>{section.id}</span>
-                    <small>{section.scheduleName}</small>
+                    <span>{section.title}</span>
                   </a>
                 ))}
               </nav>
@@ -424,15 +435,10 @@ const Pricing = () => {
                       <article key={`${section.id}-${index}-${item.name}`} className={styles.card}>
                         <div className={styles.cardTop}>
                           <div className={`${styles.cardIcon} ${styles[item.color]}`}>{getCardIcon(item.chargeType)}</div>
-                          <div className={styles.sectionTag}>{item.sectionId}</div>
                         </div>
                         <div className={styles.cardBody}>
                           <h3>{item.name}</h3>
                           <p>{item.description}</p>
-                        </div>
-                        <div className={styles.sectionContext}>
-                          <strong>{item.sectionTitle}</strong>
-                          <span>{item.sectionSubtitle}</span>
                         </div>
                         <div className={styles.cardMeta}>
                           <span className={styles.chargeType}>{item.chargeType}</span>

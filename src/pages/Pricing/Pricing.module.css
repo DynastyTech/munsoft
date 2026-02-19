@@ -54,6 +54,7 @@
 
 .catalog {
   padding: 40px 24px 80px;
+  overflow-x: hidden;
 }
 
 .sectionWrap {
@@ -83,6 +84,8 @@
 
 .searchInput,
 .select {
+  width: 100%;
+  min-width: 0;
   height: 42px;
   border-radius: 10px;
   border: 1px solid var(--border-default);
@@ -100,6 +103,8 @@
 }
 
 .clearButton {
+  width: 100%;
+  min-width: 0;
   height: 42px;
   border-radius: 10px;
   border: 1px solid var(--color-primary);
@@ -120,6 +125,24 @@
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin-bottom: 18px;
+}
+
+.mobileToggle {
+  display: none;
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0 12px;
+  margin-bottom: 10px;
+}
+
+.controlsWrap {
+  display: block;
 }
 
 .catalogLayout {
@@ -153,8 +176,7 @@
 
 .sidebarLink {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-direction: row;
   border-radius: 10px;
   padding: 8px 10px;
   color: var(--text-secondary);
@@ -164,14 +186,10 @@
 
 .sidebarLink span {
   color: var(--text-primary);
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.sidebarLink small {
-  color: var(--text-tertiary);
-  font-size: 0.72rem;
+  font-size: 0.76rem;
+  font-weight: 600;
   line-height: 1.35;
+  word-break: break-word;
 }
 
 .sidebarLink:hover {
@@ -231,17 +249,8 @@
 
 .cardTop {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-}
-
-.sectionTag {
-  background: rgba(91, 143, 163, 0.14);
-  color: var(--color-secondary-dark);
-  border-radius: 999px;
-  padding: 4px 10px;
-  font-size: 0.74rem;
-  font-weight: 700;
 }
 
 .card:hover {
@@ -277,25 +286,6 @@
   font-size: 0.86rem;
   line-height: 1.55;
   min-height: 72px;
-}
-
-.sectionContext {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sectionContext strong {
-  color: var(--text-primary);
-  font-size: 0.8rem;
-  line-height: 1.35;
-}
-
-.sectionContext span {
-  color: var(--text-tertiary);
-  font-size: 0.76rem;
-  line-height: 1.35;
 }
 
 .emptyState {
@@ -367,8 +357,8 @@
   }
 
   .sidebarNav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-direction: column;
   }
 
   .cardGrid {
@@ -389,11 +379,32 @@
     grid-template-columns: 1fr;
   }
 
+  .mobileToggle {
+    display: block;
+  }
+
+  .controlsWrap {
+    display: none;
+  }
+
+  .controlsWrap.open {
+    display: block;
+  }
+
   .controls {
     grid-template-columns: 1fr;
   }
 
-  .sidebarNav {
+  .sidebar {
+    display: none;
+  }
+
+  .sidebar.sidebarOpen {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .controls {
     grid-template-columns: 1fr;
   }
 
