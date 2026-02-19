@@ -26,6 +26,7 @@ const Navbar = () => {
     { path: '/erp', label: 'ERP' },
     { path: '/ict', label: 'ICT' },
     { path: '/advisory', label: 'Advisory' },
+    { path: '/pricing', label: 'Pricing' },
     { path: '/contact', label: 'Contact' },
   ];
 

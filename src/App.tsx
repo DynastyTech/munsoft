@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar, Footer, ScrollProgress, ScrollToTop, LoadingScreen } from './components';
-import { Home, ERP, ICT, Advisory, Contact } from './pages';
+import { Home, ERP, ICT, Advisory, Contact, Pricing } from './pages';
 import './styles/global.css';
 
 // Component to handle initial loading
@@ -27,6 +27,7 @@ function AppContent() {
             <Route path="/erp" element={<ERP />} />
             <Route path="/ict" element={<ICT />} />
             <Route path="/advisory" element={<Advisory />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
