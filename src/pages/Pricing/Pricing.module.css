@@ -157,7 +157,7 @@
   top: 94px;
   background: var(--bg-primary);
   border: 1px solid var(--border-light);
-  border-radius: 14px;
+  border-radius: 0;
   padding: 14px;
   box-shadow: var(--shadow-sm);
 }
@@ -177,11 +177,21 @@
 .sidebarLink {
   display: flex;
   flex-direction: row;
-  border-radius: 10px;
-  padding: 8px 10px;
+  border-radius: 0;
+  padding: 10px 12px;
   color: var(--text-secondary);
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--color-primary);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(232, 90, 36, 0.08) 0px,
+      rgba(232, 90, 36, 0.08) 8px,
+      rgba(232, 90, 36, 0.02) 8px,
+      rgba(232, 90, 36, 0.02) 16px
+    );
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
 }
 
 .sidebarLink span {
@@ -193,8 +203,17 @@
 }
 
 .sidebarLink:hover {
-  border-color: var(--border-default);
-  background: var(--bg-secondary);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 10px rgba(232, 90, 36, 0.16);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(232, 90, 36, 0.18) 0px,
+      rgba(232, 90, 36, 0.18) 8px,
+      rgba(232, 90, 36, 0.06) 8px,
+      rgba(232, 90, 36, 0.06) 16px
+    );
+  transform: translateX(2px);
 }
 
 .sectionsColumn {
