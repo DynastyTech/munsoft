@@ -225,13 +225,14 @@
 @media (min-width: 1025px) {
   .catalogLayout {
     display: block;
+    position: relative;
   }
 
   .sidebar {
     position: fixed;
     top: 92px;
-    left: max(24px, calc((100vw - 1200px) / 2 + 24px));
-    width: 280px;
+    left: max(24px, calc((100vw - 1200px) / 2));
+    width: 240px;
     max-height: calc(100vh - 104px);
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -239,37 +240,18 @@
   }
 
   .sectionsColumn {
-    margin-left: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: calc(100% - 300px);
+    margin-left: 260px;
     min-width: 0;
   }
 
   .sectionBlock {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 120px);
-    overflow: hidden;
-    margin-bottom: 0;
-  }
-
-  .sectionHeader {
-    position: sticky;
-    top: 0;
-    z-index: 4;
-    margin-bottom: 12px;
-    flex-shrink: 0;
+    margin-bottom: 16px;
   }
 
   .cardsScroller {
-    flex: 1 1 auto;
-    min-height: 0;
     max-height: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 6px;
+    overflow: visible;
+    padding-right: 0;
   }
 }
 
