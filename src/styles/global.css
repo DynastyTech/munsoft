@@ -249,11 +249,6 @@ html {
   will-change: transform;
 }
 
-/* Optimize sections for content visibility */
-section {
-  contain: layout style;
-}
-
 /* Focus styles for accessibility */
 :focus-visible {
   outline: 2px solid var(--color-primary);

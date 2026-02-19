@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import styles from './Pricing.module.css';
 
 type ChargeType =
@@ -184,8 +183,6 @@ const getCardIcon = (chargeType: ChargeType) => {
 };
 
 const Pricing = () => {
-  const introAnim = useScrollAnimation();
-  const gridAnim = useScrollAnimation(0.05);
   const [search, setSearch] = useState('');
   const [selectedSection, setSelectedSection] = useState('all');
   const [selectedChargeType, setSelectedChargeType] = useState('all');
@@ -251,7 +248,7 @@ const Pricing = () => {
     <div className={styles.pricing}>
       <section className={styles.hero}>
         <div className={styles.heroOverlay} />
-        <div ref={introAnim.ref} className={`${styles.heroContent} ${introAnim.isVisible ? styles.visible : ''}`}>
+        <div className={`${styles.heroContent} ${styles.visible}`}>
           <h1>Pricing Catalog</h1>
           <p>
             Product and service pricing from the 2026 variable and communication schedules (sections 1.1 to 1.6),
@@ -262,7 +259,7 @@ const Pricing = () => {
       </section>
 
       <section className={styles.catalog}>
-        <div ref={gridAnim.ref} className={`${styles.sectionWrap} ${gridAnim.isVisible ? styles.visible : ''}`}>
+        <div className={`${styles.sectionWrap} ${styles.visible}`}>
           <div className={styles.controls}>
             <input
               type="text"
