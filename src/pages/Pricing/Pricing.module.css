@@ -219,16 +219,24 @@
 }
 
 @media (min-width: 900px) {
+  .catalog {
+    padding-left: 260px;
+  }
+
+  .sectionWrap {
+    max-width: none;
+    margin: 0;
+  }
+
   .catalogLayout {
     display: block;
-    position: relative;
   }
 
   .sidebar {
     position: fixed !important;
     top: 92px;
-    left: 16px;
-    width: 220px;
+    left: 0;
+    width: 230px;
     max-height: calc(100vh - 104px);
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -237,14 +245,7 @@
   }
 
   .sectionsColumn {
-    margin-left: 0;
     min-width: 0;
-  }
-
-  .sectionWrap {
-    margin-left: 252px;
-    margin-right: 24px;
-    max-width: none;
   }
 
   .sectionBlock {
