@@ -8,8 +8,11 @@ const Footer = () => {
         <div className={styles.grid}>
           <div className={styles.col}>
             <div className={styles.logo}>
-              <span className={styles.logoText}>MUNSOFT</span>
-              <span className={styles.logoSubtitle}>municipal financial software</span>
+              <img
+                src="/assets/images/Logo_Munsoft_%20Transp.png"
+                alt="Munsoft"
+                className={styles.logoImage}
+              />
             </div>
             <p className={styles.description}>
               Powering smart municipal governance through digital transformation since 2001.
@@ -54,9 +57,8 @@ const Footer = () => {
 
           <div className={styles.col}>
             <h4>Locations</h4>
-            <p>Johannesburg • Centurion</p>
-            <p>Polokwane • Durban</p>
-            <p>Cape Town</p>
+            <p><strong>Sandton Office:</strong> 11 Naivasha Road, Building A, First Floor, Suite 111, Sunninghill, 2157</p>
+            <p><strong>Centurion Office:</strong> 5 Bauhinia Street, Cambridge Office Park, Building 6, Highveld Techno Park, Centurion, 0169</p>
           </div>
         </div>
 

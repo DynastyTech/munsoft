@@ -37,8 +37,11 @@ const Advisory = () => {
         </div>
         <div className={styles.heroHeader}>
           <div className={styles.logo}>
-            <span className={styles.logoText}>MUNSOFT</span>
-            <span className={styles.logoSubtext}>municipal financial software</span>
+            <img
+              src="/assets/images/Logo_Munsoft_%20Transp.png"
+              alt="Munsoft"
+              className={styles.logoImage}
+            />
           </div>
           <div className={styles.cityCorner}>
             <img src="/assets/images/city-1.jpg" alt="City" className={styles.cornerImage} />

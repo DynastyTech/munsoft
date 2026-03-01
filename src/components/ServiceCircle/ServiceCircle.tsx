@@ -44,16 +44,16 @@ const ServiceCircle = () => {
         >
           <defs>
             <linearGradient id="erpGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#E85A24" />
-              <stop offset="100%" stopColor="#F7931E" />
+              <stop offset="0%" stopColor="#FF6720" />
+              <stop offset="100%" stopColor="#E85A24" />
             </linearGradient>
             <linearGradient id="ictGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#5B8FA3" />
-              <stop offset="100%" stopColor="#4A7A8C" />
+              <stop offset="0%" stopColor="#768692" />
+              <stop offset="100%" stopColor="#5f6c76" />
             </linearGradient>
             <linearGradient id="advisoryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6B7280" />
-              <stop offset="100%" stopColor="#5B636E" />
+              <stop offset="0%" stopColor="#000000" />
+              <stop offset="100%" stopColor="#222222" />
             </linearGradient>
           </defs>
           
@@ -102,8 +102,11 @@ const ServiceCircle = () => {
 
         {/* Center Logo */}
         <div className={styles.center}>
-          <span className={styles.centerLogo}>MUNSOFT</span>
-          <span className={styles.centerSubtitle}>municipal financial software</span>
+          <img
+            src="/assets/images/Logo_Munsoft_%20Transp.png"
+            alt="Munsoft"
+            className={styles.centerLogoImage}
+          />
         </div>
 
         {/* Labels positioned on their respective segments */}

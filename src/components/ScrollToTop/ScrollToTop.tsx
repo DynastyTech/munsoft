@@ -5,12 +5,24 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 500);
+      const nextVisible = window.scrollY > 500;
+      setIsVisible((prev) => (prev === nextVisible ? prev : nextVisible));
+      ticking = false;
     };
 
-    window.addEventListener('scroll', toggleVisibility, { passive: true });
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(toggleVisibility);
+        ticking = true;
+      }
+    };
+
+    toggleVisibility();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const scrollToTop = () => {

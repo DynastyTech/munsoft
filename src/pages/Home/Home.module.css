@@ -447,31 +447,6 @@
   }
 }
 
-/* Tagline Section */
-.taglineSection {
-  position: absolute;
-  bottom: 120px;
-  left: 40px;
-  z-index: 30;
-  background: var(--color-primary);
-  padding: 12px 20px;
-  border-radius: 4px;
-}
-
-.taglinePrimary {
-  font-size: 1rem;
-  font-weight: 600;
-  color: white;
-  font-style: italic;
-  margin-bottom: 4px;
-}
-
-.taglineSecondary {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-style: italic;
-}
-
 /* ===== INTRODUCTION SECTION ===== */
 .intro {
   padding: 60px 40px;
@@ -491,20 +466,12 @@
 
 .logoSmall {
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 
-.logoText {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  letter-spacing: 2px;
-}
-
-.logoSubtext {
-  font-size: 0.7rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.5px;
+.logoImage {
+  width: 210px;
+  max-width: 56vw;
 }
 
 .cityCornerImage {
@@ -922,19 +889,6 @@
     height: 160px;
   }
 
-  .taglineSection {
-    bottom: 110px;
-    left: 20px;
-    padding: 10px 16px;
-  }
-
-  .taglinePrimary {
-    font-size: 0.9rem;
-  }
-
-  .taglineSecondary {
-    font-size: 0.8rem;
-  }
 }
 
 /* ===== RESPONSIVE - MOBILE ===== */
@@ -1015,15 +969,6 @@
 
   .waveContainer {
     height: 50px;
-  }
-
-  .taglineSection {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    text-align: center;
-    padding: 15px 20px;
-    border-radius: 0;
   }
 
   .introHeader {

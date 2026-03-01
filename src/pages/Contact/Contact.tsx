@@ -65,8 +65,11 @@ const Contact = () => {
         </div>
         <div className={styles.heroHeader}>
           <div className={styles.logo}>
-            <span className={styles.logoText}>MUNSOFT</span>
-            <span className={styles.logoSubtext}>municipal financial software</span>
+            <img
+              src="/assets/images/Logo_Munsoft_%20Transp.png"
+              alt="Munsoft"
+              className={styles.logoImage}
+            />
           </div>
           <div className={styles.accentCorner}></div>
         </div>
@@ -94,12 +97,17 @@ const Contact = () => {
             </div>
             <div className={styles.contactItem}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                <path d="M3 5h18v14H3z"/>
+                <line x1="8" y1="9" x2="16" y2="9"/>
+                <line x1="8" y1="13" x2="14" y2="13"/>
               </svg>
-              <span>www.munsoft.co.za</span>
+              <span>011 215 8019 (Fax)</span>
             </div>
+          </div>
+
+          <div className={styles.postalAddressCard}>
+            <h3>Postal Address</h3>
+            <p>P.O. Box 731457, Fairland, 2030</p>
           </div>
 
           {/* Office Locations Grid */}
@@ -111,11 +119,11 @@ const Contact = () => {
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
               </div>
-              <h3 className={styles.locationTitle}>Johannesburg</h3>
+              <h3 className={styles.locationTitle}>Sandton Office</h3>
               <address className={styles.locationAddress}>
-                Building A, 1st Floor,<br/>
-                11 Naivasha Rd<br/>
-                Sunninghill, Sandton,<br/>
+                11 Naivasha Road,<br/>
+                Building A, First Floor,<br/>
+                Suite 111, Sunninghill,<br/>
                 2157
               </address>
             </div>
@@ -129,59 +137,11 @@ const Contact = () => {
               </div>
               <h3 className={styles.locationTitle}>Centurion</h3>
               <address className={styles.locationAddress}>
-                Building 17,<br/>
-                Cambridge Office Park,<br/>
                 5 Bauhinia Street,<br/>
-                Highveld Technopark,<br/>
-                Centurion 0169
-              </address>
-            </div>
-
-            <div className={styles.locationCard}>
-              <div className={styles.locationIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <h3 className={styles.locationTitle}>Polokwane</h3>
-              <address className={styles.locationAddress}>
-                The Office Park 10,<br/>
-                89 Hans van Rensburg Street,<br/>
-                Polokwane,<br/>
-                0700
-              </address>
-            </div>
-
-            <div className={styles.locationCard}>
-              <div className={styles.locationIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <h3 className={styles.locationTitle}>Durban</h3>
-              <address className={styles.locationAddress}>
-                Regus Business Centre, 21 Aurora Drive,<br/>
-                1st Floor Liberty Life Building,<br/>
-                Umhlanga Ridge,<br/>
-                4319
-              </address>
-            </div>
-
-            <div className={styles.locationCard}>
-              <div className={styles.locationIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <h3 className={styles.locationTitle}>Cape Town</h3>
-              <address className={styles.locationAddress}>
-                Unit A13, First Floor, Block A, Grosvenor Square,<br/>
-                12 Park Lane, Century City,<br/>
-                Cape Town,<br/>
-                7441
+                Cambridge Office Park, Building 6,<br/>
+                Highveld Techno Park,<br/>
+                Centurion,<br/>
+                0169
               </address>
             </div>
           </div>
@@ -293,11 +253,10 @@ const Contact = () => {
             <div className={styles.mapWrapper}>
               <div className={styles.mapPlaceholder}>
                 <h3>Our Offices</h3>
-                <p>We have offices across South Africa to serve you better.</p>
+                <p>Visit our Sandton and Centurion offices during business hours.</p>
                 <div className={styles.officeHours}>
                   <h4>Office Hours</h4>
                   <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                  <p className={styles.supportNote}>24/7 Technical Support Available</p>
                 </div>
               </div>
             </div>

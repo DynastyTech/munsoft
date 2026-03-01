@@ -1,17 +1,17 @@
 /* Munsoft Design System - Variables */
 :root {
   /* Brand Colors */
-  --color-primary: #E85A24;
-  --color-primary-light: #FF7B47;
-  --color-primary-dark: #C44A1A;
+  --color-primary: #FF6720;
+  --color-primary-light: #FF8C57;
+  --color-primary-dark: #E25514;
   
-  --color-secondary: #5B8FA3;
-  --color-secondary-light: #7AAFBF;
-  --color-secondary-dark: #4A7A8C;
+  --color-secondary: #768692;
+  --color-secondary-light: #93A0A9;
+  --color-secondary-dark: #5E6B75;
   
-  --color-tertiary: #6B7280;
-  --color-tertiary-light: #9CA3AF;
-  --color-tertiary-dark: #4B5563;
+  --color-tertiary: #000000;
+  --color-tertiary-light: #3A3A3A;
+  --color-tertiary-dark: #000000;
   
   /* Neutral Colors - Light Mode */
   --color-white: #FFFFFF;

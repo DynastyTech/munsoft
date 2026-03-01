@@ -83,25 +83,14 @@
   }
 }
 
-.centerLogo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #E85A24;
-  letter-spacing: 2px;
+.centerLogoImage {
+  width: 170px;
+  max-width: 72%;
   transition: transform 0.3s ease;
 }
 
-.center:hover .centerLogo {
+.center:hover .centerLogoImage {
   transform: scale(1.05);
-}
-
-.centerSubtitle {
-  font-size: 0.6rem;
-  color: #666;
-  text-align: center;
-  max-width: 160px;
-  line-height: 1.3;
-  margin-top: 6px;
 }
 
 .center:hover {

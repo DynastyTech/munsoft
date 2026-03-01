@@ -10,11 +10,24 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const nextScrolled = window.scrollY > 50;
+      setIsScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+      ticking = false;
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -27,6 +40,7 @@ const Navbar = () => {
     { path: '/ict', label: 'ICT' },
     { path: '/advisory', label: 'Advisory' },
     { path: '/pricing', label: 'Pricing' },
+    { path: '/careers', label: 'Careers' },
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -34,8 +48,11 @@ const Navbar = () => {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
-          <span className={styles.logoText}>MUNSOFT</span>
-          <span className={styles.logoSubtitle}>municipal financial software</span>
+          <img
+            src="/assets/images/Logo_Munsoft_%20Transp.png"
+            alt="Munsoft"
+            className={styles.logoImage}
+          />
         </Link>
 
         <div className={`${styles.navMenu} ${isMobileOpen ? styles.active : ''}`}>

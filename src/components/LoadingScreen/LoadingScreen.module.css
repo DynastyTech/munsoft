@@ -30,21 +30,10 @@
   animation: fadeInUp 0.8s ease forwards;
 }
 
-.logo {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--color-primary, #E85A24);
-  letter-spacing: 2px;
-  margin: 0;
+.logoImage {
+  width: 300px;
+  max-width: 70vw;
   animation: pulse 2s ease-in-out infinite;
-}
-
-.tagline {
-  display: block;
-  font-size: 0.9rem;
-  color: #6B7280;
-  letter-spacing: 1px;
-  margin-top: 8px;
 }
 
 .loaderContainer {
@@ -67,7 +56,7 @@
 
 .loaderBar {
   height: 100%;
-  background: linear-gradient(90deg, #E85A24, #F7931E);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   border-radius: 4px;
   transition: width 0.3s ease;
 }
@@ -124,12 +113,8 @@
 
 /* Responsive */
 @media (max-width: 480px) {
-  .logo {
-    font-size: 2.5rem;
-  }
-
-  .tagline {
-    font-size: 0.75rem;
+  .logoImage {
+    width: 220px;
   }
 
   .loaderContainer {

@@ -67,8 +67,11 @@ const LoadingScreen = ({ onLoadComplete, minLoadTime = 1500 }: LoadingScreenProp
       <div className={styles.content}>
         {/* Logo */}
         <div className={styles.logoContainer}>
-          <h1 className={styles.logo}>MUNSOFT</h1>
-          <span className={styles.tagline}>municipal financial software</span>
+          <img
+            src="/assets/images/Logo_Munsoft_%20Transp.png"
+            alt="Munsoft"
+            className={styles.logoImage}
+          />
         </div>
 
         {/* Loading Animation */}

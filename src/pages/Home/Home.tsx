@@ -106,6 +106,7 @@ const Home = () => {
             src="/assets/images/city-1.jpg" 
             alt="City skyline"
             className={styles.cityBgImage}
+            fetchPriority="high"
           />
           <div className={styles.cityOverlay}></div>
         </div>
@@ -175,6 +176,7 @@ const Home = () => {
               src="/assets/images/lady.png" 
               alt="Munsoft representative"
               className={styles.personImage}
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -216,25 +218,25 @@ const Home = () => {
           </svg>
         </div>
         
-        {/* Tagline at bottom */}
-        <div className={styles.taglineSection}>
-          <p className={styles.taglinePrimary}>Powering Smart Municipal Governance</p>
-          <p className={styles.taglineSecondary}>Through Digital Transformation</p>
-        </div>
       </section>
 
       {/* Introduction Section - Page 1 Style */}
       <section className={styles.intro}>
         <div className={styles.introHeader}>
           <div className={styles.logoSmall}>
-            <span className={styles.logoText}>MUNSOFT</span>
-            <span className={styles.logoSubtext}>municipal financial software</span>
+            <img
+              src="/assets/images/Logo_Munsoft_%20Transp.png"
+              alt="Munsoft"
+              className={styles.logoImage}
+            />
           </div>
           <div className={styles.cityCornerImage}>
             <img 
               src="/assets/images/city-3.jpg" 
               alt="City view"
               className={styles.cornerImage}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -276,6 +278,8 @@ const Home = () => {
                 <img 
                   src="/assets/images/city-2.jpg" 
                   alt="ERP Services"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -301,6 +305,8 @@ const Home = () => {
                 <img 
                   src="/assets/images/city-1.jpg" 
                   alt="ICT Services"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -327,6 +333,8 @@ const Home = () => {
                 <img 
                   src="/assets/images/city-3.jpg" 
                   alt="Advisory Services"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -409,6 +417,8 @@ const Home = () => {
             src="/assets/images/city-2.jpg" 
             alt="City background"
             className={styles.statsBgImage}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className={styles.statsOverlay}></div>

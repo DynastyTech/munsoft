@@ -58,20 +58,12 @@
 
 .logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 
-.logoText {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #E85A24;
-  letter-spacing: 2px;
-}
-
-.logoSubtext {
-  font-size: 0.7rem;
-  color: #666;
-  letter-spacing: 0.5px;
+.logoImage {
+  width: 170px;
+  max-width: 46vw;
 }
 
 .cityCorner {
@@ -116,7 +108,7 @@
 /* Sidebar Label */
 .sidebarLabel {
   width: 250px;
-  background: #5B8FA3;
+  background: var(--color-secondary);
   color: white;
   padding: 20px;
   border-radius: 0 12px 12px 0;
