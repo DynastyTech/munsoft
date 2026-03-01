@@ -261,10 +261,6 @@ img {
   transition: opacity 0.3s ease;
 }
 
-img[loading] {
-  opacity: 0;
-}
-
 /* Link hover effect */
 a:not([class]) {
   position: relative;
